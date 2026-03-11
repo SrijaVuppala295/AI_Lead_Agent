@@ -515,38 +515,31 @@ Uses **APScheduler with a cron trigger** to run the full lead gen pipeline autom
 
 ## Screenshots
 
-### Main Menu
-![Main Menu](screenshots/01_main_menu.png)
-
 ### Option 1 — Lead Gen Pipeline Running
-![Lead Gen](screenshots/02_option1_run.png)
-
-### Option 1 — Hot Lead Discord Alert
-![Discord Alert](screenshots/03_discord_alert.png)
-
-### Option 1 — Google Sheets Live Output
-![Sheets](screenshots/04_google_sheets.png)
-
-### Option 1 — Excel Output (Color-coded)
-![Excel](screenshots/05_excel_output.png)
+![Lead Gen](https://drive.google.com/file/d/18ZB7t5zssT-ffl6Cucri5K89IYxochkI/view?usp=drive_link)
+![Discord Alert](https://drive.google.com/file/d/1E8h0Z8zRk6nZ9CxvUtOroL294WjNacKp/view?usp=drive_link)
+![Sheets](https://drive.google.com/file/d/1i7qjN_IrCJOVNj7V7E44hF9nKRv-8JTF/view?usp=drive_link)
+![Excel](https://drive.google.com/file/d/1c54GWAsU-ffnHnXgYzieKY5HWnq-xHmx/view?usp=drive_link)
+![Main Menu](https://drive.google.com/file/d/1U_xMCPdUMv3aDKOdlNoh5g_VRemNeFAA/view?usp=drive_link)
 
 ### Option 2 — Email Pipeline Submenu
-![Email Submenu](screenshots/06_option2_submenu.png)
+![Email Submenu](https://drive.google.com/file/d/11NI81z2xmU6t8_S2oE9nTG2PCXDq7DCq/view?usp=drive_link)
+![Email Discovery](https://drive.google.com/file/d/1TzNhTJEMI9Lj_vdFLTaY9cVqecPlkGvs/view?usp=drive_link)
+![Email Generation](https://drive.google.com/file/d/1E2DqDp2Z8QoCqQ40W8GLsV788qG3nqCg/view?usp=drive_link)
+![Discord Status](https://drive.google.com/file/d/1SfdfBmmDFerRqvb5Rf-eMZdTO1ZIXgLb/view?usp=drive_link)
+![Discord Status](https://drive.google.com/file/d/1njqLE_Pq4L12JgcldfK74NIxpmDWYo08/view?usp=drive_link)
+![Discord Status](https://drive.google.com/file/d/1nUYujUxHbsTn2C6m_2RQJ0wnvtDtA3rS/view?usp=drive_link)
+![Discord Status](https://drive.google.com/file/d/1Xv1A_hNTmQu_sjJTYGUS6QKUVOFMjE-Z/view?usp=drive_link)
+![Discord Status](https://drive.google.com/file/d/1mzyZuKdxlcZmU5Psu0R3x9yQfj-bYJgA/view?usp=drive_link)
 
-### Option 2 — Email Discovery (High / Medium / Low Confidence)
-![Email Discovery](screenshots/07_email_discovery.png)
-
-### Option 2 — AI Email Generation
-![Email Generation](screenshots/08_email_generation.png)
-
-### Option 3 — Discord Bot /status Dashboard
-![Discord Status](screenshots/09_discord_status.png)
 
 ### Option 3 — Discord Bot /preview Email Sequence
-![Discord Preview](screenshots/10_discord_preview.png)
-
-### Option 3 — Discord Bot /send
-![Discord Send](screenshots/11_discord_send.png)
+![Discord Preview](https://drive.google.com/file/d/1_mHtOZW4fl1ae_NZMmDLq6pOYOcHaMWx/view?usp=drive_link)
+![Discord Send](https://drive.google.com/file/d/1JG_-kTNQKYUHH9SY7is5_ZWt7XcdxpQd/view?usp=drive_link)
+![Discord Send](https://drive.google.com/file/d/1JlGi-vatjkzda2rlurFoxuWc45LUwNiI/view?usp=drive_link)
+![Discord Send](https://drive.google.com/file/d/1fmdo6t8ISyv9OiW0AD1o5qptm9-AP9Xi/view?usp=drive_link)
+![Discord Send](https://drive.google.com/file/d/18ZSiBd958wuuH1T2DYKnOEbQa60sfjfn/view?usp=drive_link)
+![Discord Send](https://drive.google.com/file/d/1449589Vo5fEtB5p3x09ld4FsLg92xhsj/view?usp=drive_link)
 
 > 📸 Run the agent, take screenshots of each step, and save them in a `screenshots/` folder in the repo root.
 
@@ -554,7 +547,9 @@ Uses **APScheduler with a cron trigger** to run the full lead gen pipeline autom
 
 ## Demo Video
 
-> 🎥 [Watch Demo Video](https://youtu.be/YOUR_LINK_HERE)
+> 🎥 [Watch Demo Video for Option 1](https://drive.google.com/file/d/14HrrLp7BelROIjSgAOfo8FH7CeGCuSQm/view?usp=drive_link)
+> 🎥 [Watch Demo Video for Option 2](https://drive.google.com/file/d/1vLBHgpurllXFbF5bTznEmH-JPOUiLV3O/view?usp=drive_link)
+> 🎥 [Watch Demo Video for Option 3](https://drive.google.com/file/d/1FZ7Liu9hnquOwOGec2NWA9l9Xh-EGPdL/view?usp=drive_link)
 
 **What the demo covers:**
 1. Running Option 1 — live signal collection, AI classification, contact discovery
