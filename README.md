@@ -513,43 +513,6 @@ Uses **APScheduler with a cron trigger** to run the full lead gen pipeline autom
 
 ---
 
-## Screenshots
-
-### Option 1 — Lead Gen Pipeline Running
-
-![Lead Gen](assets/option1/r1.0.png)
-
-![Discord Alert](assets/option1/r1.1.png)
-![Sheets](assets/option1/r1.3.png)
-![Excel](assets/option1/output1.png)
-![Main Menu](assets/option1/output2.png)
-
----
-
-### Option 2 — Email Pipeline Submenu
-
-![Email Submenu](assets/option2/2.0.png)
-![Email Discovery](assets/option2/2.1.png)
-![Email Generation](assets/option2/2.2.png)
-![Discord Status](assets/option2/2.3.png)
-![Discord Status](assets/option2/2.4.png)
-![Discord Status](assets/option2/2.5.png)
-![Output](assets/option2/output1.png)
-![Output](assets/option2/output2.png)
-
----
-
-### Option 3 — Discord Bot /preview Email Sequence
-
-![Discord Preview](assets/option3/3.0.png)
-![Discord Send](assets/option3/3.1.png)
-![Discord Send](assets/option3/3.2.png)
-![Discord Send](assets/option3/3.3.png)
-![Discord Send](assets/option3/3.4.png)
-![Discord Send](assets/option3/3.5.png)
-
----
-
 ## Demo Video
 
 > 🎥 [Watch Demo Video for Option 1](https://drive.google.com/file/d/14HrrLp7BelROIjSgAOfo8FH7CeGCuSQm/view?usp=drive_link)
@@ -563,6 +526,69 @@ Uses **APScheduler with a cron trigger** to run the full lead gen pipeline autom
 4. Option 2 — email discovery showing confidence levels
 5. Option 2 — AI generating a personalized email referencing the exact signal
 6. Option 3 — Discord bot `/status`, `/preview`, `/send`, `/check_replies`
+
+---
+
+## Screenshots
+
+### Option 1 — Lead Gen Pipeline Running
+
+<p align="center">
+<img src="assets/option1/r1.0.png" width="48%">
+<img src="assets/option1/r1.1.png" width="48%">
+</p>
+
+<p align="center">
+<img src="assets/option1/r1.3.png" width="48%">
+<img src="assets/option1/output2.png" width="48%">
+</p>
+
+<p align="center">
+<img src="assets/option1/output1.png" width="48%">
+</p>
+
+---
+
+### Option 2 — Email Pipeline Submenu
+
+<p align="center">
+<img src="assets/option2/2.0.png" width="48%">
+<img src="assets/option2/2.1.png" width="48%">
+</p>
+
+<p align="center">
+<img src="assets/option2/2.2.png" width="48%">
+<img src="assets/option2/2.3.png" width="48%">
+</p>
+
+<p align="center">
+<img src="assets/option2/2.4.png" width="48%">
+<img src="assets/option2/2.5.png" width="48%">
+</p>
+
+<p align="center">
+<img src="assets/option2/output1.png" width="48%">
+<img src="assets/option2/output2.png" width="48%">
+</p>
+
+---
+
+### Option 3 — Discord Bot /preview Email Sequence
+
+<p align="center">
+<img src="assets/option3/3.0.png" width="48%">
+<img src="assets/option3/3.1.png" width="48%">
+</p>
+
+<p align="center">
+<img src="assets/option3/3.2.png" width="48%">
+<img src="assets/option3/3.5.png" width="48%">
+</p>
+
+<p align="center">
+<img src="assets/option3/3.4.png" width="48%">
+<img src="assets/option3/3.3.png" width="48%">
+</p>
 
 ---
 
