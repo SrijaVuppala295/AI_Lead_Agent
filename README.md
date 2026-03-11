@@ -516,32 +516,37 @@ Uses **APScheduler with a cron trigger** to run the full lead gen pipeline autom
 ## Screenshots
 
 ### Option 1 — Lead Gen Pipeline Running
-![Lead Gen](https://drive.google.com/file/d/18ZB7t5zssT-ffl6Cucri5K89IYxochkI/view?usp=drive_link)
-![Discord Alert](https://drive.google.com/file/d/1E8h0Z8zRk6nZ9CxvUtOroL294WjNacKp/view?usp=drive_link)
-![Sheets](https://drive.google.com/file/d/1i7qjN_IrCJOVNj7V7E44hF9nKRv-8JTF/view?usp=drive_link)
-![Excel](https://drive.google.com/file/d/1c54GWAsU-ffnHnXgYzieKY5HWnq-xHmx/view?usp=drive_link)
-![Main Menu](https://drive.google.com/file/d/1U_xMCPdUMv3aDKOdlNoh5g_VRemNeFAA/view?usp=drive_link)
+
+![Lead Gen](assets/option1/r1.0.png)
+
+![Discord Alert](assets/option1/r1.1.png)
+![Sheets](assets/option1/r1.3.png)
+![Excel](assets/option1/output1.png)
+![Main Menu](assets/option1/output2.png)
+
+---
 
 ### Option 2 — Email Pipeline Submenu
-![Email Submenu](https://drive.google.com/file/d/11NI81z2xmU6t8_S2oE9nTG2PCXDq7DCq/view?usp=drive_link)
-![Email Discovery](https://drive.google.com/file/d/1TzNhTJEMI9Lj_vdFLTaY9cVqecPlkGvs/view?usp=drive_link)
-![Email Generation](https://drive.google.com/file/d/1E2DqDp2Z8QoCqQ40W8GLsV788qG3nqCg/view?usp=drive_link)
-![Discord Status](https://drive.google.com/file/d/1SfdfBmmDFerRqvb5Rf-eMZdTO1ZIXgLb/view?usp=drive_link)
-![Discord Status](https://drive.google.com/file/d/1njqLE_Pq4L12JgcldfK74NIxpmDWYo08/view?usp=drive_link)
-![Discord Status](https://drive.google.com/file/d/1nUYujUxHbsTn2C6m_2RQJ0wnvtDtA3rS/view?usp=drive_link)
-![Discord Status](https://drive.google.com/file/d/1Xv1A_hNTmQu_sjJTYGUS6QKUVOFMjE-Z/view?usp=drive_link)
-![Discord Status](https://drive.google.com/file/d/1mzyZuKdxlcZmU5Psu0R3x9yQfj-bYJgA/view?usp=drive_link)
 
+![Email Submenu](assets/option2/2.0.png)
+![Email Discovery](assets/option2/2.1.png)
+![Email Generation](assets/option2/2.2.png)
+![Discord Status](assets/option2/2.3.png)
+![Discord Status](assets/option2/2.4.png)
+![Discord Status](assets/option2/2.5.png)
+![Output](assets/option2/output1.png)
+![Output](assets/option2/output2.png)
+
+---
 
 ### Option 3 — Discord Bot /preview Email Sequence
-![Discord Preview](https://drive.google.com/file/d/1_mHtOZW4fl1ae_NZMmDLq6pOYOcHaMWx/view?usp=drive_link)
-![Discord Send](https://drive.google.com/file/d/1JG_-kTNQKYUHH9SY7is5_ZWt7XcdxpQd/view?usp=drive_link)
-![Discord Send](https://drive.google.com/file/d/1JlGi-vatjkzda2rlurFoxuWc45LUwNiI/view?usp=drive_link)
-![Discord Send](https://drive.google.com/file/d/1fmdo6t8ISyv9OiW0AD1o5qptm9-AP9Xi/view?usp=drive_link)
-![Discord Send](https://drive.google.com/file/d/18ZSiBd958wuuH1T2DYKnOEbQa60sfjfn/view?usp=drive_link)
-![Discord Send](https://drive.google.com/file/d/1449589Vo5fEtB5p3x09ld4FsLg92xhsj/view?usp=drive_link)
 
-> 📸 Run the agent, take screenshots of each step, and save them in a `screenshots/` folder in the repo root.
+![Discord Preview](assets/option3/3.0.png)
+![Discord Send](assets/option3/3.1.png)
+![Discord Send](assets/option3/3.2.png)
+![Discord Send](assets/option3/3.3.png)
+![Discord Send](assets/option3/3.4.png)
+![Discord Send](assets/option3/3.5.png)
 
 ---
 
