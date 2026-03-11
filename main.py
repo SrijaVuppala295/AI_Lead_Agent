@@ -17,24 +17,22 @@ import sys
 
 
 BANNER = """
-╔══════════════════════════════════════════════════════════╗
-║          STRIKIN LEAD GEN AGENT  v2.0                    ║
-║          PropTech Outreach Automation                    ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  1 → Run Lead Gen Agent                                  ║
-║      Signals → AI Classify → Find Contacts               ║
-║      → Google Sheets → Excel backup                      ║
-║                                                          ║
-║  2 → AI Email Generator                                  ║
-║      Auto-discover emails → Generate personalized        ║
-║      original + 3 followups per lead via AI              ║
-║                                                          ║
-║  3 → Launch Discord Campaign Bot                         ║
-║      Send emails with /send command (original/followup)  ║
-║      Check replies, view stats, manage campaigns         ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
+  ──────────────────────────────────────────────────────────
+   🚀  STRIKIN LEAD GEN AGENT — v2.5
+       Automated PropTech Outreach & Sales Intelligence
+  ──────────────────────────────────────────────────────────
+
+  [1] 🔎  Run Lead Gen Agent
+          Signals → AI Classify → Find Contacts → Export
+
+  [2] 📧  AI Email Sequences
+          Discover emails + AI personalized follow-ups
+
+  [3] 🤖  Discord Campaign Bot
+          Send campaigns, track replies & manage stats
+
+  [0] ❌  Exit
+  ──────────────────────────────────────────────────────────
 """
 
 

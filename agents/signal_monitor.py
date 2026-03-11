@@ -419,16 +419,15 @@ def collect_all_signals():
     duplicates_removed = len(all_signals) - len(unique_signals)
 
     # Print clean summary
-    print("─"*55)
-    print(f"  Google News:      {len(google_signals)}")
-    print(f"  PropTech Sites:   {len(proptech_signals)}")
-    print(f"  Real Estate News: {len(blog_signals)}")
-    print(f"  ───────────────────────────")
-    print(f"  Total:            {len(all_signals)}")
+    print("  ──────────────────────────────────────────")
+    print(f"   📡  {len(google_signals):<2} Google News Signals")
+    print(f"   🏢  {len(proptech_signals):<2} PropTech Site Signals")
+    print(f"   📰  {len(blog_signals):<2} Real Estate News Signals")
+    print("  ──────────────────────────────────────────")
     if duplicates_removed > 0:
-        print(f"  Duplicates:       {duplicates_removed} removed")
-    print(f"  New signals:      {len(unique_signals)}")
-    print("─"*55)
+        print(f"   ♻️   {duplicates_removed} duplicates filtered")
+    print(f"   ✨  {len(unique_signals)} new unique signals discovered")
+    print("  ──────────────────────────────────────────")
 
     if len(unique_signals) == 0:
         print("  ℹ️  No new signals since last run")

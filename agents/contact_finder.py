@@ -441,16 +441,16 @@ def find_all_contacts():
             found_count   += 1
             continue
 
-        print(f"\n  🔎 {company_name}...")
+        print(f"   🔎 {company_name[:25]:<25}", end=" ", flush=True)
 
         # Website
         website = find_company_website(company_name)
         if website:
-            print(f"     🌐 {website}")
-            website_count += 1
+            # No print, keep it on one line
+            pass
         else:
-            print(f"     ⚠️  Website not found")
-            website = "Not found"
+            # print(f"     ⚠️  Website not found")
+            pass
 
         wait("between_companies")
 
@@ -460,14 +460,13 @@ def find_all_contacts():
             contact_name  = contact["contact_name"]
             contact_title = contact["contact_title"]
             linkedin_url  = contact["linkedin_url"]
-            print(f"     👤 {contact_name} — {contact_title}")
-            print(f"     🔗 {linkedin_url}")
+            print(f"→  👤 {contact_name:<20} ✅")
             found_count += 1
         else:
             contact_name  = "Not found"
             contact_title = "Not found"
             linkedin_url  = build_fallback_url(company_name)
-            print(f"     ⚠️  Contact not found — search URL fallback")
+            print(f"→  ⚠️  Not found")
 
         wait("between_leads")
 
@@ -494,14 +493,12 @@ def find_all_contacts():
             "linkedin_url":    linkedin_url,
         })
 
-    print(f"\n{'─'*55}")
-    print(f"📊 CONTACT FINDER SUMMARY")
-    print(f"{'─'*55}")
-    print(f"  Total leads:      {len(leads)}")
-    print(f"  Already had:      {skipped_count}")
-    print(f"  Websites found:   {website_count}")
-    print(f"  Contacts found:   {found_count}")
-    print(f"  Not found:        {len(leads) - found_count}")
-    print(f"{'─'*55}")
+    # ── Summary ──────────────────────────────────────────
+    print("\n  ──────────────────────────────────────────")
+    print(f"   🔎  CONTACT DISCOVERY COMPLETE")
+    print(f"   🏠  {website_count} Websites discovered")
+    print(f"   👤  {found_count} Decision makers found")
+    print(f"   ⏩  {skipped_count} leads already processed")
+    print("  ──────────────────────────────────────────")
 
     return updated

@@ -320,16 +320,12 @@ def classify_all_signals(signals):
         time.sleep(2)
 
     # ── Summary ───────────────────────────────────────────────────────────
-    print("\n" + "─"*55)
-    print(f"📊 CLASSIFICATION SUMMARY")
-    print(f"─"*55)
-    print(f"  Total signals:    {len(signals)}")
-    print(f"  Hot leads  (7+):  {len(hot_leads)}")
-    print(f"  Warm leads (5-6): {len(all_leads) - len(hot_leads)}")
-    print(f"  Discarded:        {discarded}")
-    print(f"  Errors:           {errors}")
-    print(f"  Total leads:      {len(all_leads)}")
-    print("─"*55)
+    print("\n  ──────────────────────────────────────────")
+    print(f"   🧠  AI CLASSIFICATION COMPLETE")
+    print(f"   ✅  {len(all_leads) - len(hot_leads)} Warm leads qualified")
+    print(f"   🔥  {len(hot_leads)} Hot leads identified")
+    print(f"   🗑️   {discarded} irrelavant signals discarded")
+    print("  ──────────────────────────────────────────")
 
     return {
         "all_leads": all_leads,

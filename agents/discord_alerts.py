@@ -18,12 +18,12 @@ HOW TO GET WEBHOOK URL:
 
 import requests
 import os
+from datetime import datetime
 
 
 def send_hot_lead_alert(lead):
     """
     Sends a Discord embed notification for a single hot lead.
-    Called for every lead with urgency_score >= 7.
     """
     webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
     if not webhook_url:
@@ -31,7 +31,7 @@ def send_hot_lead_alert(lead):
 
     score         = lead.get("urgency_score", 0)
     company       = lead.get("company_name", "Unknown")
-    category      = lead.get("signal_category", "")
+    category      = lead.get("signal_category", "OTHER")
     why_relevant  = lead.get("why_relevant", "")
     signal_title  = lead.get("signal_title", "")
     source_url    = lead.get("source_url", "")
@@ -39,68 +39,56 @@ def send_hot_lead_alert(lead):
     contact_title = lead.get("contact_title", "TBD")
     website       = lead.get("company_website", "TBD")
 
-    # Score emoji
-    if score >= 9:
-        emoji = "🔥🔥"
-    elif score >= 7:
-        emoji = "🔥"
-    else:
-        emoji = "✅"
+    # Score Visualization
+    full_blocks = int(score)
+    empty_blocks = 10 - full_blocks
+    score_bar = "🟦" * full_blocks + "⬜" * empty_blocks
+    
+    emoji = "🔥" if score >= 8 else "✅"
 
-    # Category color — Discord uses decimal color codes
     color_map = {
-        "FUNDING":          0xE74C3C,   # red
-        "LAUNCH":           0x2ECC71,   # green
-        "HIRING":           0x3498DB,   # blue
-        "CRM_ADOPTION":     0xF39C12,   # orange
-        "DIGITAL_TRANSFORM":0x9B59B6,   # purple
-        "EXPANSION":        0x1ABC9C,   # teal
-        "OTHER":            0x95A5A6,   # grey
+        "FUNDING":          0x00FF00,   # Neon Green
+        "LAUNCH":           0x00BFFF,   # Deep Sky Blue
+        "HIRING":           0xFFD700,   # Gold
+        "CRM_ADOPTION":     0xFF4500,   # Orange Red
+        "DIGITAL_TRANSFORM":0x9400D3,   # Dark Violet
+        "EXPANSION":        0xFF69B4,   # Hot Pink
+        "OTHER":            0x808080,   # Grey
     }
-    color = color_map.get(category, 0x95A5A6)
+    color = color_map.get(category, 0x808080)
 
-    # Build Discord embed
     embed = {
-        "title": f"{emoji} HOT LEAD [{score}/10] — {company}",
+        "title": f"{emoji} {company}",
+        "description": f"**Lead Priority:** {score}/10\n{score_bar}",
         "color": color,
         "fields": [
             {
-                "name": "📌 Signal Category",
-                "value": category or "Unknown",
-                "inline": True
-            },
-            {
-                "name": "📊 Intent Score",
-                "value": f"{score}/10",
-                "inline": True
-            },
-            {
-                "name": "💡 Why Relevant",
-                "value": why_relevant or "See signal",
+                "name": "📌 Signal",
+                "value": f"**{category}**: {signal_title[:150]}...",
                 "inline": False
             },
             {
-                "name": "📰 Signal",
-                "value": signal_title[:200] if signal_title else "N/A",
+                "name": "👤 Target Contact",
+                "value": f"**{contact_name}**\n*{contact_title}*",
+                "inline": True
+            },
+            {
+                "name": "🌐 Company Link",
+                "value": f"[Visit Website]({website})" if website.startswith("http") else website,
+                "inline": True
+            },
+            {
+                "name": "💡 Why this lead?",
+                "value": why_relevant or "Relevant PropTech signal detected.",
                 "inline": False
-            },
-            {
-                "name": "👤 Contact",
-                "value": f"{contact_name} — {contact_title}",
-                "inline": True
-            },
-            {
-                "name": "🌐 Website",
-                "value": website or "TBD",
-                "inline": True
-            },
+            }
         ],
         "footer": {
-            "text": "Strikin Lead Gen Agent"
-        }
+            "text": "Strikin Sales Intelligence • automated notification"
+        },
+        "timestamp": datetime.now().isoformat()
     }
 
-    # Add source URL button if available
     if source_url:
         embed["url"] = source_url
 
