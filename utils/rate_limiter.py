@@ -72,13 +72,33 @@ LIMITS = {
     "between_companies": (2.0,  5.0),
 }
 
+# ── Human-readable labels ────────────────────────────────────────────────
+CATEGORY_LABELS = {
+    "ddg_search":        "DuckDuckGo search",
+    "ddg_error":         "Search error backoff",
+    "scrape":            "Website scraping",
+    "scrape_error":      "Scrape retry delay",
+    "groq":              "Groq AI processing",
+    "deepseek":          "DeepSeek AI processing",
+    "openrouter":        "OpenRouter AI processing",
+    "ai_generic":        "AI processing",
+    "ai_rate_limit":     "AI rate-limit backoff",
+    "ai_all_exhausted":  "AI providers cooling down",
+    "ai_error":          "AI error retry",
+    "email_send":        "Gmail SMTP cooldown",
+    "email_error":       "Email error backoff",
+    "imap_check":        "Gmail IMAP scanning",
+    "between_leads":     "General lead pacing",
+    "between_companies": "General company pacing",
+}
+
 
 def rand(min_s: float, max_s: float) -> float:
     """Returns a random float between min_s and max_s, rounded to 4dp."""
     return round(random.uniform(min_s, max_s), 4)
 
 
-def wait(category: str, verbose: bool = False) -> float:
+def wait(category: str, verbose: bool = True) -> float:
     """
     Sleeps for a random duration based on category.
     Returns the actual sleep duration.
@@ -94,12 +114,14 @@ def wait(category: str, verbose: bool = False) -> float:
     if category not in LIMITS:
         # Unknown category — safe default
         duration = rand(1.0, 3.0)
+        label    = category
     else:
         min_s, max_s = LIMITS[category]
         duration = rand(min_s, max_s)
+        label    = CATEGORY_LABELS.get(category, category)
 
     if verbose:
-        print(f"  ⏱  [{category}] waiting {duration}s...")
+        print(f"  ⏱  [{label}] waiting {duration}s...")
 
     time.sleep(duration)
     return duration

@@ -134,14 +134,50 @@ def check_replies():
         # Get all sent emails that haven't replied yet
         sent_emails = get_emails_by_status("sent")
 
-        # Search inbox for replies
-        _, msg_nums = mail.search(None, "ALL")
+        # Filter: only look for emails from the leads we actually sent to
+        unique_leads = list({s[4] for s in sent_emails if s[4]})
+        
+        if not unique_leads:
+            print("  ℹ️  No pending leads to check replies for.")
+            mail.logout()
+            return []
 
-        for num in msg_nums[0].split():
+        print(f"  🔍 Checking for replies from {len(unique_leads)} leads...")
+        
+        msg_nums_to_check = set()
+        
+        # Target scan: Search only for emails from these specific leads
+        # We use Gmail-specific fast search (X-GM-RAW) if possible, chunked to avoid limits
+        for i in range(0, len(unique_leads), 20):
+            chunk = unique_leads[i:i+20]
             try:
-                _, msg_data = mail.fetch(num, "(RFC822)")
-                raw_email = msg_data[0][1]
-                msg = email_lib.message_from_bytes(raw_email)
+                # Gmail efficient search
+                search_query = f"from:({ ' | '.join(chunk) })"
+                _, data = mail.search(None, 'X-GM-RAW', search_query)
+                if data[0]:
+                    msg_nums_to_check.update(data[0].split())
+            except Exception:
+                # Fallback to standard IMAP if X-GM-RAW fails (search last 7 days)
+                from datetime import date, timedelta
+                search_date = (date.today() - timedelta(days=7)).strftime("%d-%b-%Y")
+                _, data = mail.search(None, f"(SINCE {search_date})")
+                if data[0]:
+                    # We have to be more broad here but we'll still only match against sent_emails
+                    msg_nums_to_check.update(data[0].split())
+                break # Only do one broad search if chunked targeting fails
+
+        if not msg_nums_to_check:
+            mail.logout()
+            return []
+
+        print(f"  📥 Found {len(msg_nums_to_check)} candidate emails from leads. Verifying reply headers...")
+
+        for num in sorted(list(msg_nums_to_check), reverse=True):
+            try:
+                # Fetch only headers to save bandwidth and time
+                _, msg_data = mail.fetch(num, "(BODY[HEADER.FIELDS (REFERENCES IN-REPLY-TO FROM)])")
+                raw_headers = msg_data[0][1]
+                msg = email_lib.message_from_bytes(raw_headers)
 
                 # Check References and In-Reply-To headers
                 references  = msg.get("References", "")

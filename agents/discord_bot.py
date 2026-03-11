@@ -36,6 +36,11 @@ from utils.database import (
     update_email_status
 )
 from agents.email_sender import send_email, check_replies
+from agents.sheets_reader import (
+    get_all_leads_from_sheets_async, 
+    get_emails_from_sheets_async, 
+    update_email_status_sheets_async
+)
 
 
 # ── Rate limiting ─────────────────────────────────────────────────────────
@@ -315,12 +320,11 @@ async def send_cmd(interaction: discord.Interaction,
                    email_type: str,
                    limit: int,
                    sheet_name: str):
-    from agents.sheets_reader import get_all_leads_from_sheets_async, get_emails_from_sheets_async, update_email_status_sheets_async
+    await interaction.response.defer()
+
     from utils.database import get_email_by_company_and_type
     
     global last_send_time, session_send_count, used_delays
-    
-    await interaction.response.defer()
     
     # ── Validate inputs ───────────────────────────────────────────────────
     if limit < 1 or limit > 50:
@@ -475,7 +479,7 @@ async def send_cmd(interaction: discord.Interaction,
         )
         
         # Send email immediately (no delay before first)
-        success, result = send_email(email_row, is_followup=is_followup)
+        success, result = await asyncio.to_thread(send_email, email_row, is_followup=is_followup)
         
         if success:
             sent_count += 1
@@ -497,7 +501,7 @@ async def send_cmd(interaction: discord.Interaction,
             # Add post-send delay (8-20s) to avoid Gmail spam detection
             from utils.rate_limiter import get_delay
             post_delay = get_delay("email_send")
-            print(f"  ⏱  Post-send delay: {post_delay:.4f}s")
+            print(f"  ⏱  [Gmail SMTP cooldown] waiting {post_delay}s (after send)...")
             await asyncio.sleep(post_delay)
         else:
             failed_count += 1
@@ -521,7 +525,7 @@ async def send_cmd(interaction: discord.Interaction,
                 description=f"Random delay: **{delay}s** to avoid spam detection",
                 color=discord.Color.blue()
             )
-            await interaction.followup.send(embed=delay_embed)
+            print(f"  ⏱  [Anti-spam randomization] waiting {delay}s (between emails)...")
             await asyncio.sleep(delay)
     
     # ── Final summary ─────────────────────────────────────────────────────
@@ -543,13 +547,11 @@ async def send_cmd(interaction: discord.Interaction,
 
 @bot.tree.command(name="check_replies", description="Scan Gmail inbox for replies to sent emails")
 async def check_replies_cmd(interaction: discord.Interaction):
-    from agents.sheets_reader import update_email_status_sheets_async
-    
     await interaction.response.defer()
 
     await interaction.followup.send("🔍 Scanning Gmail inbox for replies...")
 
-    replied = check_replies()
+    replied = await asyncio.to_thread(check_replies)
 
     if not replied:
         await interaction.followup.send(
