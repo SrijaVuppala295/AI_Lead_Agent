@@ -42,7 +42,7 @@ BANNER = """
 # OPTION 1 — Lead Gen Agent
 # ═══════════════════════════════════════════════════════════════════════════
 
-def run_option_1():
+def run_agent():
     from utils.database import (
         init_db, update_last_run_timestamp,
         mark_as_processed, get_lead_count
@@ -424,7 +424,7 @@ def main():
     print()
 
     if choice == "1":
-        run_option_1()
+        run_agent()
     elif choice == "2":
         run_option_2()
     elif choice == "3":
