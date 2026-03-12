@@ -512,6 +512,11 @@ python scheduler.py
 Uses **APScheduler with a cron trigger** to run the full lead gen pipeline automatically every day at **9:00 AM IST**. Also runs once immediately on startup. Keep this running in the background — it handles everything on its own.
 
 ---
+## Lead Results
+
+All generated leads are automatically pushed to Google Sheets.
+
+[View the Lead Sheet](https://docs.google.com/spreadsheets/d/1bCLg5qsN5pUgwbkfLO8LUAsRFVVkB5CNhu2GVxwZ8Cg)
 
 ## Demo Video
 
