@@ -1,4 +1,3 @@
-# 🏠 Strikin Lead Gen Agent — Task 02
 ### AI-Powered Intent-Based PropTech Outreach Automation
 
 ---
