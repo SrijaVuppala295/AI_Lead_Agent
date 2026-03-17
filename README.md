@@ -24,7 +24,7 @@
 
 An **autonomous AI agent** that monitors the internet for buying signals from PropTech and real estate companies, classifies intent using LLMs, finds the right contact person (CEO/CTO/Founder), discovers their email, and generates a full personalized outreach email sequence — all automatically.
 
-### Why I Chose Task 02
+### Why I Chose This ?
 
 The problem is real: sales teams waste 70% of their time on manual prospecting. I wanted to build something that actually eliminates that — not just collects leads but takes them all the way to a ready-to-send personalized email, with a Discord bot for campaign control.
 
