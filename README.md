@@ -1,4 +1,4 @@
-### AI-Powered Intent-Based PropTech Outreach Automation
+# AI-Powered Intent-Based PropTech Outreach Automation
 
 ---
 
