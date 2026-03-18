@@ -12,21 +12,47 @@ SCHEDULE:
   Runs immediately on start (so you see it working right away)
 """
 
+import logging
+import sys
+import signal
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 from dotenv import load_dotenv
 from datetime import datetime
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logger = logging.getLogger("scheduler")
+
 load_dotenv()
 
 from main import run_agent
 
-
 def scheduled_run():
-    print(f"\n⏰ SCHEDULED RUN — {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    run_agent()
+    logger.info("⏰ SCHEDULED RUN STARTED")
+    try:
+        run_agent()
+        logger.info("✅ SCHEDULED RUN COMPLETED")
+    except Exception as e:
+        logger.error(f"❌ SCHEDULED RUN FAILED: {e}", exc_info=True)
 
+def handle_exit(signum, frame):
+    logger.info("🛑 Received termination signal. Shutting down scheduler...")
+    if scheduler.running:
+        scheduler.shutdown()
+    sys.exit(0)
 
 if __name__ == "__main__":
+    # Register signal handlers for clean shutdown in Docker/Railway
+    signal.signal(signal.SIGINT, handle_exit)
+    signal.signal(signal.SIGTERM, handle_exit)
+
     scheduler = BlockingScheduler(timezone="Asia/Kolkata")
 
     # Run every day at 9AM IST
@@ -37,13 +63,15 @@ if __name__ == "__main__":
         name="Daily Lead Gen Run"
     )
 
-    print("⏰ SCHEDULER STARTED")
-    print("   Runs daily at 9:00 AM IST")
-    print("   Press Ctrl+C to stop\n")
+    logger.info("⏰ SCHEDULER STARTED")
+    logger.info("   Schedule: Daily at 9:00 AM IST")
 
     # Run immediately on start
-    print("▶️  Running now on startup...")
+    logger.info("▶️  Running immediate startup task...")
     scheduled_run()
 
     # Then keep running on schedule
-    scheduler.start()
+    try:
+        scheduler.start()
+    except (KeyboardInterrupt, SystemExit):
+        pass

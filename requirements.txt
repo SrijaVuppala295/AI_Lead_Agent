@@ -1,29 +1,14 @@
-# Core
 python-dotenv
 feedparser
 requests
 tabulate
-
-# AI
 groq
 openai
-
-# Search
 ddgs
-
-# Google Sheets
 gspread
 google-auth
 google-auth-oauthlib
-
-# Excel
 openpyxl
-
-# Discord Bot
 discord.py
-
-# Scheduler
 apscheduler
-
-# DB (built-in, no install needed)
-# sqlite3
+python-dateutil

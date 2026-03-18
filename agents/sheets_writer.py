@@ -25,9 +25,17 @@ SCOPES = [
 
 
 def get_sheet_client():
-    creds  = Credentials.from_service_account_file(
-        os.getenv("GOOGLE_CREDENTIALS_PATH"), scopes=SCOPES
-    )
+    creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+    if creds_json:
+        import json
+        info  = json.loads(creds_json)
+        creds = Credentials.from_service_account_info(info, scopes=SCOPES)
+    else:
+        # Fallback to local file if env var not present
+        creds = Credentials.from_service_account_file(
+            os.getenv("GOOGLE_CREDENTIALS_PATH", "credentials.json"), 
+            scopes=SCOPES
+        )
     client = gspread.authorize(creds)
     return client.open_by_key(os.getenv("GOOGLE_SHEET_ID"))
 
